@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Президент: Развиваем страну</title>
+    <title> Президент: Развиваем страну </title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -57,12 +57,13 @@
     <button id="option2"></button>
     <button id="option3"></button>
 </div>
-<div id="results"></div>
+<div id="results"> 
+</div>
 
 <script>
-    let budget = 100000; // Начальный бюджет
-    let developmentScore = 0; // Оценка развития страны
-    let happiness = 50; // Уровень счастья населения
+    let budget = 100000; // бастапқы сумма
+    let developmentScore = 0; // даму
+    let happiness = 50; // халық
     let gameStep = 0;
 
     function updateStatus() {
@@ -81,13 +82,13 @@
         const option2 = document.getElementById('option2');
         const option3 = document.getElementById('option3');
 
-        // Проверка на отрицательный бюджет
+        
         if (budget < 0) {
             endGame("Ваш бюджет стал отрицательным! Игра окончена.");
             return;
         }
 
-        // Генерация случайного события
+        
         const randomEvent = Math.random();
         if (randomEvent < 0.2) {
             handleRandomEvent();
@@ -148,16 +149,14 @@
             { message: "Успешная встреча с инвесторами принесла дополнительные средства: +$25000", effect: () => { budget += 25000; happiness += 5; } },
             { message: "На выборы влияют слухи о вашей неэффективности. Уровень счастья падает!", effect: () => { happiness -= 15; developmentScore -= 10; } }
         ];
-
         const event = randomEvents[Math.floor(Math.random() * randomEvents.length)];
         event.effect();
         alert(event.message);
         updateStatus();
         nextStep();
     }
-
     function endGame(message) {
-        document.getElementById('game').style.display = 'none'; // Скрыть игровой интерфейс
+        document.getElementById('game').style.display = 'none'; 
         document.getElementById('results').innerHTML = `
             <h2>${message}</h2>
             <p>Итоговый бюджет: $${budget}</p>
@@ -165,115 +164,102 @@
             <p>Уровень счастья населения: ${happiness}</p>
         `;
     }
-
     function buildSchools(amount) {
         budget -= amount;
-        developmentScore += 30; // Увеличиваем оценку развития
-        happiness += 10; // Увеличиваем счастье населения
+        developmentScore += 30; 
+        happiness += 10; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     function investInInfrastructure(amount) {
         budget -= amount;
-        developmentScore += 50; // Увеличиваем оценку развития
-        happiness += 20; // Увеличиваем счастье населения
+        developmentScore += 50; 
+        happiness += 20; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     function increaseSalaries(amount) {
         budget -= amount;
-        developmentScore += 15; // Увеличиваем оценку развития
-        happiness += 25; // Увеличиваем счастье населения
+        developmentScore += 15; 
+        happiness += 25; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     function investInHealthcare(amount) {
         budget -= amount;
-        developmentScore += 40; // Увеличиваем оценку развития
-        happiness += 30; // Увеличиваем счастье населения
+        developmentScore += 40; 
+        happiness += 30; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     function developTechnology(amount) {
         budget -= amount;
-        developmentScore += 60; // Увеличиваем оценку развития
-        happiness += 20; // Увеличиваем счастье населения
+        developmentScore += 60; 
+        happiness += 20; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     function increaseSocialPayments(amount) {
         budget -= amount;
-        developmentScore += 10; // Увеличиваем оценку развития
-        happiness += 40; // Увеличиваем счастье населения
+        developmentScore += 10; 
+        happiness += 40; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     function buildRoads(amount) {
         budget -= amount;
-        developmentScore += 50; // Увеличиваем оценку развития
-        happiness += 15; // Увеличиваем счастье населения
+        developmentScore += 50; 
+        happiness += 15; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     function supportSmallBusiness(amount) {
         budget -= amount;
-        developmentScore += 25; // Увеличиваем оценку развития
-        happiness += 10; // Увеличиваем счастье населения
+        developmentScore += 25; 
+        happiness += 10; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     function increaseCultureBudget(amount) {
         budget -= amount;
-        developmentScore += 20; // Увеличиваем оценку развития
-        happiness += 25; // Увеличиваем счастье населения
+        developmentScore += 20; 
+        happiness += 25; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     function investInResearch(amount) {
         budget -= amount;
-        developmentScore += 70; // Увеличиваем оценку развития
-        happiness += 5; // Увеличиваем счастье населения
+        developmentScore += 70; 
+        happiness += 5; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     function supportEducation(amount) {
         budget -= amount;
-        developmentScore += 50; // Увеличиваем оценку развития
-        happiness += 30; // Увеличиваем счастье населения
+        developmentScore += 50;
+        happiness += 30; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     function buildParks(amount) {
         budget -= amount;
-        developmentScore += 15; // Увеличиваем оценку развития
-        happiness += 35; // Увеличиваем счастье населения
+        developmentScore += 15; 
+        happiness += 35; 
         gameStep++;
         updateStatus();
         nextStep();
     }
-
     startGame();
 </script>
 </body>
